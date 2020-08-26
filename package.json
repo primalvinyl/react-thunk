@@ -1,7 +1,16 @@
 {
     "name": "react-thunk",
-    "version": "0.1.0",
+    "version": "0.0.1",
+    "author": "Robert",
     "private": true,
+    "description": "A React application using Thunk middleware.",
+    "keywords": ["react", "redux", "redux-thunk"],
+    "homepage": "https://github.com/primalvinyl/react-thunk#readme",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/primalvinyl/react-thunk"
+    },
+    "bugs": "https://github.com/primalvinyl/react-thunk/issues",
     "dependencies": {
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
