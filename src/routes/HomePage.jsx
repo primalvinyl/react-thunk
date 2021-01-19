@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { userRequest } from '../actions';
+import { userRequestThunk } from '../store/actions';
 import Form from '../components/Form';
 
 const HomePage = () => {
@@ -8,10 +8,10 @@ const HomePage = () => {
     const userData = useSelector(state => state.user);
 
     React.useEffect(() => {
-        dispatch(userRequest('dingo'));
+        dispatch(userRequestThunk('test'));
     }, [dispatch]);
 
-    const reasonList = userData.user.score_reasons.map(element => {
+    const reasonList = userData.result.list.map(element => {
         return (
             <li key={element}>{element}</li>
         );
@@ -20,14 +20,14 @@ const HomePage = () => {
     return (
         <div>
             <div>
-                <Form screenName={userData.user.screen_name} />
+                <Form screenName={userData.result.screen_name} />
             </div>
             <div>
                 <h1>Result</h1>
-                <p>{ userData.user.name }</p>
+                <p>{userData.result.name}</p>
                 <h2>Reasons</h2>
                 <ul>
-                    { reasonList }
+                    {reasonList}
                 </ul>
             </div>
         </div>

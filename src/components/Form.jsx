@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
-import { userRequest } from '../actions';
+import { userRequestThunk } from '../store/actions';
 
 const Form = props => {
     const dispatch = useDispatch();
@@ -10,7 +10,7 @@ const Form = props => {
         <Formik
             initialValues={{ screenName: props.screenName }}
             onSubmit={({ screenName }, { setSubmitting }) => {
-                dispatch(userRequest(screenName));
+                dispatch(userRequestThunk(screenName));
                 setSubmitting(false);
             }}
         >

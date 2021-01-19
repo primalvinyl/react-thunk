@@ -9,7 +9,6 @@
         "redux",
         "redux-thunk"
     ],
-    "homepage": "https://github.com/primalvinyl/react-thunk#readme",
     "repository": {
         "type": "git",
         "url": "https://github.com/primalvinyl/react-thunk"
@@ -51,6 +50,7 @@
         ]
     },
     "devDependencies": {
+        "react-test-renderer": "^17.0.1",
         "redux-devtools-extension": "^2.13.8"
     }
 }

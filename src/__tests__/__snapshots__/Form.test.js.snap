@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer matches snapshot 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <input
+    name="screenName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    type="text"
+  />
+  <button
+    disabled={false}
+    type="submit"
+  >
+    Submit
+  </button>
+</form>
+`;

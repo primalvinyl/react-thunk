@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import actionTypes, { userDefault } from '../actions';
+import actionTypes, { userDefault } from './actions';
 
 /* -------------------------- reducers ------------------------------------- */
 export const user = (state = userDefault, action) => {
     switch (action.type) {
-        case actionTypes.FETCH_USER_REQUEST:
+        case actionTypes.FETCH_USER_START:
             return {
                 ...state,
                 loading: true
@@ -19,7 +19,7 @@ export const user = (state = userDefault, action) => {
             return {
                 ...state,
                 loading: false,
-                error: action.error
+                error: true
             };
         default:
             return state;
