@@ -27,7 +27,7 @@ export const userRequestThunk = (query = '') => {
     return async (dispatch) => {
         dispatch(fetchUserStart());
         try {
-            const response = await fetch(`http://localhost:8000/api/user/${query}`);
+            const response = await fetch(`http://localhost:3000/api/user/${query}`);
             const body = await response.json();
             dispatch(fetchUserSuccess(body));
         } catch (error) {
