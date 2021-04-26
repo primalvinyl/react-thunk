@@ -1,0 +1,5 @@
+{
+    "/api/products/search?q=:id": "/api/products",
+    "/api/users/search?q=:id": "/api/users",
+    "/test": "/test.html"
+}

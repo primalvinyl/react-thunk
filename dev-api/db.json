@@ -1,0 +1,18 @@
+{
+    "users": [
+        {"name": "Bling", "id": "123", "email": "bling@bling.com"},
+        {"name": "Hinkle", "id": "124", "email": "hinkle@bling.com"},
+        {"name": "Linky", "id": "125", "email": "linky@bling.com"},
+        {"name": "Doodad", "id": "126", "email": "doodad@bling.com"},
+        {"name": "Rinky", "id": "127", "email": "rinky@bling.com"},
+        {"name": "Mouse", "id": "128", "email": "mouse@bling.com"}
+    ],
+    "products": [
+        {"name": "Blocks", "id": "123", "description": "A bunch of blocks."},
+        {"name": "Rakes", "id": "124", "description": "A bunch of rakes."},
+        {"name": "Dragons", "id": "125", "description": "A bunch of dragons."},
+        {"name": "Cheese", "id": "126", "description": "A bunch of cheese."},
+        {"name": "Insects", "id": "127", "description": "A bunch of insects."},
+        {"name": "Walls", "id": "128", "description": "A bunch of walls."}
+    ]
+}
