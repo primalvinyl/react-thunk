@@ -8,8 +8,7 @@ const server = jsonServer.create();
 //middleware
 server.use(jsonServer.rewriter(routes));
 server.use(jsonServer.defaults({
-    static: path.join(__dirname, 'public'),
-    noCors: true
+    static: path.join(__dirname, 'public')
 }));
 
 //slow down api to simulate production
