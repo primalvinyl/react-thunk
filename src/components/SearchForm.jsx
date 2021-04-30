@@ -1,16 +1,13 @@
 import React from 'react';
-import { Formik } from 'formik';
-import { useDispatch } from 'react-redux';
-import { userRequestThunk } from '../store/actions';
+import PropTypes from 'prop-types';
+import { Formik, Form } from 'formik';
 
-const Form = props => {
-    const dispatch = useDispatch();
-
+const SearchForm = ({ submitHandler }) => {
     return (
         <Formik
-            initialValues={{ screenName: props.screenName }}
+            initialValues={{ screenName: '' }}
             onSubmit={({ screenName }, { setSubmitting }) => {
-                dispatch(userRequestThunk(screenName));
+                submitHandler(screenName);
                 setSubmitting(false);
             }}
         >
@@ -23,7 +20,7 @@ const Form = props => {
                 handleSubmit,
                 isSubmitting
             }) => (
-                    <form onSubmit={handleSubmit}>
+                    <Form onSubmit={handleSubmit}>
                         <input
                             type="text"
                             name="screenName"
@@ -35,10 +32,14 @@ const Form = props => {
                         <button type="submit" disabled={isSubmitting}>
                             Submit
                         </button>
-                    </form>
+                    </Form>
                 )}
         </Formik>
     );
 }
 
-export default Form;
+SearchForm.propTypes = {
+    submitHandler: PropTypes.func.isRequired
+};
+
+export default SearchForm;

@@ -1,34 +1,27 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { userRequestThunk } from '../store/actions';
-import Form from '../components/Form';
+import { useSelector, useDispatch } from 'react-redux';
+import { unwrapResult } from '@reduxjs/toolkit';
+import { userRequest } from '../store/actions';
+import SearchForm from '../components/SearchForm';
 
 const HomePage = () => {
     const dispatch = useDispatch();
     const userData = useSelector(state => state.user);
-
-    React.useEffect(() => {
-        dispatch(userRequestThunk('test'));
-    }, [dispatch]);
-
-    const reasonList = userData.result.list.map(element => {
-        return (
-            <li key={element}>{element}</li>
-        );
-    })
+    const submitHandler = username => {
+        dispatch(userRequest(username))
+            .then(unwrapResult)
+            .then(result => console.log(result));
+    };
 
     return (
         <div>
             <div>
-                <Form screenName={userData.result.screen_name} />
+                <SearchForm submitHandler={submitHandler} />
             </div>
             <div>
                 <h1>Result</h1>
-                <p>{userData.result.name}</p>
-                <h2>Reasons</h2>
-                <ul>
-                    {reasonList}
-                </ul>
+                <p>{userData.name}</p>
+                <p>{userData.email}</p>
             </div>
         </div>
     );

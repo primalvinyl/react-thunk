@@ -1,5 +1,5 @@
 import {
-    userRequestThunk,
+    userRequest,
     fetchUserStart,
     fetchUserSuccess,
     userDefault } from '../store/actions';
@@ -7,15 +7,15 @@ import {
 global.fetch = jest.fn();
 const dispatch = jest.fn();
 
-describe('userRequestThunk', () => {
+describe('userRequest', () => {
     it('dispatches a request start action', async () => {
-        await userRequestThunk('test')(dispatch);
+        await userRequest('test')(dispatch);
         expect(dispatch).toHaveBeenCalledWith(fetchUserStart());
     })
 
     it('on success dispatches a success action with data', async () => {
         fetch.mockResolvedValueOnce({ json: () => Promise.resolve(userDefault) });
-        await userRequestThunk('test')(dispatch);
+        await userRequest('test')(dispatch);
         expect(dispatch).toHaveBeenLastCalledWith(fetchUserSuccess());
     })
 })

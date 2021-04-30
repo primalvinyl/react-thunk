@@ -1,32 +1,43 @@
+import { createSlice } from '@reduxjs/toolkit'; 
 import { combineReducers } from 'redux';
-import actionTypes, { userDefault } from './actions';
+import { userRequest } from './actions';
 
-/* -------------------------- reducers ------------------------------------- */
-export const user = (state = userDefault, action) => {
-    switch (action.type) {
-        case actionTypes.FETCH_USER_START:
-            return {
-                ...state,
-                loading: true
-            };
-        case actionTypes.FETCH_USER_SUCCESS:
-            return {
-                ...state,
-                loading: false,
-                user: action.user
-            };
-        case actionTypes.FETCH_USER_FAILURE:
-            return {
-                ...state,
-                loading: false,
-                error: true
-            };
-        default:
-            return state;
-    }
+const userDefault = {
+    name: '',
+    id: '',
+    email: '',
+    loading: false,
+    error: false
 };
 
-/* ----------------------- root reducer ---------------------------------- */
+export const user = createSlice({
+    name: 'user',
+    initialState: userDefault,
+    extraReducers: builder => {
+        builder
+            .addCase(userRequest.pending, (state, action) => {
+                return {
+                    ...state,
+                    loading: true
+                };
+            })
+            .addCase(userRequest.fulfilled, (state, action) => {
+                return {
+                    ...state,
+                    ...action.payload,
+                    loading: false
+                };
+            })
+            .addCase(userRequest.rejected, (state, action) => {
+                return {
+                    ...state,
+                    loading: false,
+                    error: true
+                };
+            })
+    }
+});
+
 export default combineReducers({
-    user
+    user: user.reducer
 });
